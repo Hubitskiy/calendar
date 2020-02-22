@@ -41,22 +41,21 @@ class UserChangeForm(forms.ModelForm):
 
 
 class UserAdmin(BaseUserAdmin):
-
     form = UserChangeForm
     add_form = UserCreationForm
 
     list_display = ('email', 'is_active')
     list_filter = ('is_active',)
     fieldsets = (
-        (None,{'fields': ('email', 'password')}),
-            ('Permissions',{'fields':('is_staff',)}),
+        (None, {'fields': ('email', 'password')}),
+        ('Permissions', {'fields': ('is_staff',)}),
 
     )
 
     add_fieldsets = (
-        (None,{
-            'classes':('wide',),
-            'fields':('email',)
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email',)
         }),
     )
 
