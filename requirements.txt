@@ -81,7 +81,7 @@ suit
 gunicorn
 django-redis
 loadtest
-djangorestframework==3.9.0
+djangorestframework==3.9.1
 djangorestframework-jwt
 djangorestframework-simplejwt
 djoser==1.5.1
