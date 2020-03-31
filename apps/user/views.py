@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.permissions import AllowAny
 from .serializer import UserCreateSerializer
 from .models import User
@@ -31,4 +31,3 @@ class CreateUserView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
-

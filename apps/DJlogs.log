@@ -667,3 +667,68 @@ Traceback (most recent call last):
   File "/apps/user/views.py", line 21, in _perform_create
     raise ValidationError('User with given credentials already exist')
 django.core.exceptions.ValidationError: ['User with given credentials already exist']
+Internal Server Error: /v1/users/me/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/resolvers.py", line 536, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python3.6/dist-packages/django/utils/functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/resolvers.py", line 584, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python3.6/dist-packages/django/utils/functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/resolvers.py", line 577, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/apps/apps_conf/urls.py", line 23, in <module>
+    path("v1/users/", include("user.urls")),
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/apps/user/urls.py", line 2, in <module>
+    from .views import CreateUserView
+  File "/apps/user/views.py", line 3, in <module>
+    from .serializer import UserCreateSerializer, RetrieveUserSerializer
+ImportError: cannot import name 'RetrieveUserSerializer'
+Not Found: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Forbidden: /v1/users/me/
+Unauthorized: /v1/auth/jwt/create/
+Forbidden: /v1/users/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
+Forbidden: /v1/auth/me/
