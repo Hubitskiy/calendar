@@ -21,11 +21,13 @@ class Event(models.Model):
     )
     time_period = models.CharField(
         verbose_name='Time period for sending a notification',
-        choices=TIME_PERIOD, default='JUST_NOW'
+        choices=TIME_PERIOD, default='JUST_NOW',
+        max_length=15
     )
     event_date = models.DateTimeField(
         verbose_name='Event Date',
-        blank=False
+        blank=False,
+        default=None
     )
     date_to_send_invitations = models.DateTimeField(
         verbose_name='date and time to send invitation',
