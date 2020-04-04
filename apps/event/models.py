@@ -36,7 +36,12 @@ class Event(models.Model):
         on_delete=models.CASCADE
     )
 
-    
+    is_sent = models.BooleanField(
+        default=False
+    )
+    is_ended = models.BooleanField(
+        default=False
+    )
 
     def __str__(self):
         return self.events_title
