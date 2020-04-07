@@ -13,7 +13,11 @@ class EventCreateView(CreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def _perform_create(self, serializer):
-        pass
+        validated_data = serializer.validated_data
+        dates = DateSendInvitationService.get_time_and_event_date(validated_data)
+        validated_data['date_to_send_invitations'] = dates()
+        validated_data['user'] = self.request.user
+        serializer.save()
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -21,6 +25,8 @@ class EventCreateView(CreateAPIView):
 
         if validate is not True:
             return Response(status=status.HTTP_400_BAD_REQUEST, data=serializer.errors)
+
+        self._perform_create(serializer)
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 

@@ -18,4 +18,4 @@ class CreateEventSerializer(serializers.Serializer):
     )
 
     def create(self, validated_data):
-        pass
+        return Event.objects.create(**validated_data)
