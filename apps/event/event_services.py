@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 
-class DateSendInvitationService():
+class DateSendInvitationService:
 
     def __init__(self, time_period, event_date):
         self.time_period = time_period
