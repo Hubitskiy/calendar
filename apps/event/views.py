@@ -22,8 +22,9 @@ class EventCreateView(CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self._perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.data ,status=status.HTTP_201_CREATED, headers=headers)
 
     def post(self, request, *args, **kwargs):
         return self.create(request)
