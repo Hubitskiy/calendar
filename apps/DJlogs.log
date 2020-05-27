@@ -1697,3 +1697,5 @@ Traceback (most recent call last):
 django.db.utils.IntegrityError: null value in column "user_id" violates not-null constraint
 DETAIL:  Failing row contains (147, Васян, День рождения, 2020-05-29 16:35:27+00, null, 2020-05-30 16:35:27+00, f, f, DAY).
 
+Bad Request: /v1/events/create/
+Bad Request: /v1/events/create/
