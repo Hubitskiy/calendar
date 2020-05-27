@@ -4,10 +4,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from .utils import DateSendInvitation
-from logging import warning
-from datetime import datetime
-from rest_framework.exceptions import ValidationError
-import pytz
 
 
 class EventCreateView(CreateAPIView):
@@ -21,10 +17,6 @@ class EventCreateView(CreateAPIView):
         date_to_send_invitation = get_date_to_send_invitation()
         validated_data["user"] = self.request.user
         validated_data["date_to_send_invitations"] = date_to_send_invitation
-
-        if date_to_send_invitation < datetime.now(tz=pytz.UTC):
-            raise ValidationError("Sending date cannot be less than the current")
-
         serializer.save()
 
     def create(self, request, *args, **kwargs):

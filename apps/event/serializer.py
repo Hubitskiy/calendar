@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import Event
-
+from .utils import DateSendInvitation
+from datetime import datetime
+from rest_framework.exceptions import ValidationError
+import pytz
 
 class CreateEventSerializer(serializers.Serializer):
 
@@ -19,3 +22,11 @@ class CreateEventSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Event.objects.create(**validated_data)
+
+    def validate(self, data):
+        date_send_invitations = DateSendInvitation(data)
+
+        if date_send_invitations() < datetime.now(tz=pytz.UTC):
+            raise ValidationError("Sending date cannot be less than the current")
+
+        return super().validate(data)
