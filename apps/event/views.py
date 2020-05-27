@@ -13,9 +13,10 @@ class EventCreateView(CreateAPIView):
 
     def _perform_create(self, serializer):
         validated_data = serializer.validated_data
-        add_date_to_send_invitation = DateSendInvitation(validated_data)
-        add_date_to_send_invitation()
-        validated_data['user'] = self.request.user
+        get_date_to_send_invitation = DateSendInvitation(validated_data)
+        date_to_send_invitation = get_date_to_send_invitation()
+        validated_data["user"] = self.request.user
+        validated_data["date_to_send_invitations"] = date_to_send_invitation
         serializer.save()
 
     def create(self, request, *args, **kwargs):

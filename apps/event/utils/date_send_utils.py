@@ -15,6 +15,4 @@ class DateSendInvitation:
                 'WEEK': event_date - timedelta(weeks=1),
             }.get(time_period, event_date)
 
-        self.validated_data["date_to_send_invitations"] = _time_period
-
         return _time_period
