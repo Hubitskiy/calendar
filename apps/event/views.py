@@ -1,9 +1,13 @@
-from rest_framework.generics import CreateAPIView
-from .serializer import CreateEventSerializer
+from rest_framework.generics import CreateAPIView, GenericAPIView
+from rest_framework.viewsets import GenericViewSet
+from rest_framework.mixins import RetrieveModelMixin
+from .serializer import CreateEventSerializer, RetrieveEventSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from .utils import DateSendInvitation
+from logging import warning
+from .models import Event
 
 
 class EventCreateView(CreateAPIView):
@@ -29,3 +33,15 @@ class EventCreateView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request)
+
+class RetrieveView(RetrieveModelMixin, GenericViewSet):
+
+    serializer_class = RetrieveEventSerializer
+    permission_classes = [IsAuthenticated]
+    queryset = Event.objects
+
+    def retrieve(self, request, *args, **kwargs):
+        event = self.get_object()
+        serializer = self.get_serializer(event)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)

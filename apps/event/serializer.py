@@ -30,3 +30,9 @@ class CreateEventSerializer(serializers.Serializer):
             raise ValidationError("Sending date cannot be less than the current")
 
         return super().validate(data)
+
+class RetrieveEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = '__all__'
+        depth = 0
