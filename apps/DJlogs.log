@@ -1879,3 +1879,7 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 999, in get_fields
     serializer_class=self.__class__.__name__
 AssertionError: Class RetrieveEventSerializer missing "Meta" attribute
+Not Found: /v1/events/7/
+Unauthorized: /v1/auth/jwt/create/
+Forbidden: /v1/events/create/
+Bad Request: /v1/events/create/

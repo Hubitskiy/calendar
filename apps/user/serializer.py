@@ -9,7 +9,7 @@ class UserCreateSerializer(serializers.Serializer):
     password = serializers.CharField(min_length=8)
 
     def create(self, validated_data):
-        return User.objects.create(**validated_data)
+        return User.objects.create_user(**validated_data)
 
     def update(self, instance, validated_data):
         pass

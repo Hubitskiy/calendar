@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, GenericAPIView
+from rest_framework.generics import CreateAPIView
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.mixins import RetrieveModelMixin
 from .serializer import CreateEventSerializer, RetrieveEventSerializer
@@ -18,9 +18,8 @@ class EventCreateView(CreateAPIView):
     def _perform_create(self, serializer):
         validated_data = serializer.validated_data
         get_date_to_send_invitation = DateSendInvitation(validated_data)
-        date_to_send_invitation = get_date_to_send_invitation()
         validated_data["user"] = self.request.user
-        validated_data["date_to_send_invitations"] = date_to_send_invitation
+        validated_data["date_to_send_invitations"] = get_date_to_send_invitation()
         serializer.save()
 
     def create(self, request, *args, **kwargs):
@@ -29,10 +28,11 @@ class EventCreateView(CreateAPIView):
         self._perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
 
-        return Response(serializer.data ,status=status.HTTP_201_CREATED, headers=headers)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def post(self, request, *args, **kwargs):
         return self.create(request)
+
 
 class RetrieveView(RetrieveModelMixin, GenericViewSet):
 
