@@ -1,14 +1,14 @@
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.mixins import ListModelMixin
 from rest_framework.viewsets import GenericViewSet
-from .serializer import CreateEventSerializer, RetrieveEventSerializer
+
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from .utils import DateSendInvitation
 from .custom_permission import IsSelfUser
 from .models import Event
-
+from .serializer import CreateEventSerializer, RetrieveEventSerializer
 
 class EventCreateView(CreateAPIView):
 
@@ -48,7 +48,8 @@ class ListView(ListModelMixin, GenericViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Event.objects
 
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset().filter(user_id=request.user.id)
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data, status.HTTP_200_OK)
+    def get_queryset(self):
+        assert self.queryset is not None
+
+        queryset = self.queryset.filter(user_id=self.request.user.id)
+        return queryset

@@ -31,6 +31,7 @@ class CreateEventSerializer(serializers.Serializer):
 
         return super().validate(data)
 
+
 class RetrieveEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
