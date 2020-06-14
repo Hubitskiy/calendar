@@ -1,6 +1,7 @@
-from rest_framework.generics import CreateAPIView, RetrieveDestroyAPIView
+from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import ListModelMixin
 from rest_framework.viewsets import GenericViewSet
+from rest_framework.exceptions import PermissionDenied
 
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -36,11 +37,32 @@ class EventCreateView(CreateAPIView):
         return self.create(request)
 
 
-class EventRetrieveDestroyView(RetrieveDestroyAPIView):
+class EventRetrieveDestroyView(RetrieveUpdateDestroyAPIView):
 
     serializer_class = RetrieveEventSerializer
     permission_classes = [IsAuthenticated, IsSelfUser]
     queryset = Event.objects
+
+    def _perform_update(self, serializer, instance):
+        validated_data = serializer.validated_data
+        if validated_data.get("user", False):
+            if validated_data["user"].id is not self.request.user.id:
+                raise PermissionDenied
+
+        if validated_data.get("event_date", False) or validated_data.get("time_period", False):
+            get_date_to_send_invitation  = DateSendInvitation.prepare_for_recount(validated_data, instance)
+            validated_data.setdefault("date_to_send_invitations", get_date_to_send_invitation())
+
+        serializer.save()
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop("partial", False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self._perform_update(serializer, instance)
+
+        return Response(serializer.data)
 
 
 class EventListView(ListModelMixin, GenericViewSet):

@@ -3,8 +3,15 @@ from datetime import timedelta
 
 class DateSendInvitation:
 
-    def __init__(self, validated_data):
-        self.validated_data = validated_data
+    def __init__(self, data):
+        self.validated_data = data
+
+    @classmethod
+    def prepare_for_recount(cls,validated_data , instance):
+        validated_data.setdefault("time_period", instance.time_period)
+        validated_data.setdefault("event_date", instance.event_date)
+
+        return cls(validated_data)
 
     def __call__(self, *args, **kwargs):
         time_period = self.validated_data["time_period"]

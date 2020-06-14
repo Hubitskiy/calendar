@@ -2434,3 +2434,362 @@ Bad Request: /v1/events/create/
 Bad Request: /v1/events/create/
 Forbidden: /v1/events/229/
 Forbidden: /v1/events/229/
+Forbidden: /v1/events/230/
+Bad Request: /v1/events/230/
+Forbidden: /v1/events/230/
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 70, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 48, in perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 198, in save
+    "You cannot call `.save()` after accessing `serializer.data`."
+AssertionError: You cannot call `.save()` after accessing `serializer.data`.If you need to access data before committing to the database then inspect 'serializer.validated_data' instead. 
+Forbidden: /v1/events/264/
+Forbidden: /v1/events/264/
+Forbidden: /v1/events/264/
+Forbidden: /v1/events/264/
+Forbidden: /v1/events/264/
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 70, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 48, in perform_update
+    breakpoint()
+NameError: name 'breakpoint' is not defined
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 70, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 48, in perform_update
+    warning(self.request.user.id)
+NameError: name 'breakpoint' is not defined
+Forbidden: /v1/events/264/
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 57, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 48, in perform_update
+    if serializer.validated_data["user"].id is not self.request.user.id:
+KeyError: 'user'
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/fields.py", line 454, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/fields.py", line 100, in get_attribute
+    instance = instance[attr]
+KeyError: 'description'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 61, in update
+    warning(serializer.data)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 264, in data
+    self._data = self.to_representation(self.validated_data)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/fields.py", line 475, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `description` on serializer `RetrieveEventSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `OrderedDict` instance.\nOriginal exception text was: 'description'."
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 58, in update
+    instance.setdefault("date_to_send_invitations", get_date_to_send_invitation)
+AttributeError: 'Event' object has no attribute 'setdefault'
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 58, in update
+    instance.update({"date_to_send_invitations": get_date_to_send_invitation})
+AttributeError: 'Event' object has no attribute 'update'
+Bad Request: /v1/events/264/
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 68, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 56, in perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 209, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 983, in update
+    instance.save()
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/base.py", line 851, in _save_table
+    forced_update)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/base.py", line 900, in _do_update
+    return filtered._update(values) > 0
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/query.py", line 760, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/sql/compiler.py", line 1429, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/sql/compiler.py", line 1087, in execute_sql
+    sql, params = self.as_sql()
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/sql/compiler.py", line 1395, in as_sql
+    val = field.get_db_prep_save(val, connection=self.connection)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/fields/__init__.py", line 793, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/fields/__init__.py", line 1435, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/fields/__init__.py", line 1414, in get_prep_value
+    value = super().get_prep_value(value)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/fields/__init__.py", line 1274, in get_prep_value
+    return self.to_python(value)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/fields/__init__.py", line 1375, in to_python
+    parsed = parse_datetime(value)
+  File "/usr/local/lib/python3.6/dist-packages/django/utils/dateparse.py", line 106, in parse_datetime
+    match = datetime_re.match(value)
+TypeError: expected string or bytes-like object
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 63, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 54, in perform_update
+    validated_data.setdefault("date_to_send_invitations", get_date_to_send_invitation())
+  File "/apps/event/utils/date_send_utils.py", line 27, in __call__
+    event_date = self.validated_data["event_date"]
+KeyError: 'event_date'
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 65, in update
+    self.perform_update(serializer)
+  File "/apps/event/views.py", line 56, in perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 198, in save
+    "You cannot call `.save()` after accessing `serializer.data`."
+AssertionError: You cannot call `.save()` after accessing `serializer.data`.If you need to access data before committing to the database then inspect 'serializer.validated_data' instead. 
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 63, in update
+    self._perform_update(serializer, instance)
+  File "/apps/event/views.py", line 53, in _perform_update
+    get_date_to_send_invitation  = DateSendInvitation.prepare_for_recount(validated_data, instance)
+  File "/apps/event/utils/date_send_utils.py", line 11, in prepare_for_recount
+    time_period = validated_data.get("time_period", False)
+AttributeError: 'Event' object has no attribute 'get'
+Bad Request: /v1/events/264/

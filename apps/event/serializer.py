@@ -5,6 +5,7 @@ from datetime import datetime
 from rest_framework.exceptions import ValidationError
 import pytz
 
+
 class CreateEventSerializer(serializers.Serializer):
 
     events_title = serializers.CharField(
@@ -22,6 +23,9 @@ class CreateEventSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Event.objects.create(**validated_data)
+
+    # def update(self, instance, validated_data):
+    #     pass
 
     def validate(self, data):
         date_send_invitations = DateSendInvitation(data)
