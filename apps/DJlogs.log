@@ -2793,3 +2793,54 @@ Traceback (most recent call last):
     time_period = validated_data.get("time_period", False)
 AttributeError: 'Event' object has no attribute 'get'
 Bad Request: /v1/events/264/
+Forbidden: /v1/events/
+Internal Server Error: /v1/events/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/resolvers.py", line 536, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python3.6/dist-packages/django/utils/functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/resolvers.py", line 584, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python3.6/dist-packages/django/utils/functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/resolvers.py", line 577, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/apps/apps_conf/urls.py", line 11, in <module>
+    path('v1/events/', include("event.urls"))
+  File "/usr/local/lib/python3.6/dist-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/apps/event/urls.py", line 2, in <module>
+    from .views import EventCreateView, EventRetrieveDestroyView, EventListView
+  File "/apps/event/views.py", line 8, in <module>
+    from .custom_filters.custom_filters import EventFilter
+  File "/apps/event/custom_filters/custom_filters.py", line 6, in <module>
+    class EventFilter(filter.FilterSet):
+  File "/usr/local/lib/python3.6/dist-packages/django_filters/filterset.py", line 71, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "/usr/local/lib/python3.6/dist-packages/django_filters/filterset.py", line 332, in get_filters
+    fields = cls.get_fields()
+  File "/usr/local/lib/python3.6/dist-packages/django_filters/filterset.py", line 284, in get_fields
+    "'Meta.fields' or 'Meta.exclude' to the %s class." % cls.__name__
+AssertionError: Setting 'Meta.model' without either 'Meta.fields' or 'Meta.exclude' has been deprecated since 0.15.0 and is now disallowed. Add an explicit 'Meta.fields' or 'Meta.exclude' to the EventFilter class.
+Bad Request: /v1/events/

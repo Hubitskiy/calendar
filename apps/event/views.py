@@ -2,9 +2,10 @@ from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import ListModelMixin
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.exceptions import PermissionDenied
-
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+
+from .custom_filters.custom_filters import EventFilter
 from rest_framework import status
 from .utils import DateSendInvitation
 from .custom_permission import IsSelfUser
@@ -70,6 +71,7 @@ class EventListView(ListModelMixin, GenericViewSet):
     serializer_class = RetrieveEventSerializer
     permission_classes = [IsAuthenticated]
     queryset = Event.objects
+    filter_class = EventFilter
 
     def get_queryset(self):
         assert self.queryset is not None
