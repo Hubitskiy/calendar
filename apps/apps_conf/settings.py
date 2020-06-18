@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
 
     'user',
     'event',
@@ -137,10 +138,10 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
-        'file':{
+        'file': {
             'class': 'logging.FileHandler',
-            'filename':'DJlogs.log',
-            'level':'WARNING',
+            'filename': 'DJlogs.log',
+            'level': 'WARNING',
         },
     },
     'loggers': {
@@ -171,7 +172,9 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.AllowAny'
-    ]
+    ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 SIMPLE_JWT = {
