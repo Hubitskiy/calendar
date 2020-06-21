@@ -46,14 +46,9 @@ class EventRetrieveDestroyView(RetrieveUpdateDestroyAPIView):
 
     def _perform_update(self, serializer, instance):
         validated_data = serializer.validated_data
-        if validated_data.get("user", False):
-            if validated_data["user"].id is not self.request.user.id:
-                raise PermissionDenied
-
         if validated_data.get("event_date", False) or validated_data.get("time_period", False):
             get_date_to_send_invitation  = DateSendInvitation.prepare_for_recount(validated_data, instance)
-            validated_data.setdefault("date_to_send_invitations", get_date_to_send_invitation())
-
+            instance.date_to_send_invitations = get_date_to_send_invitation()
         serializer.save()
 
     def update(self, request, *args, **kwargs):
