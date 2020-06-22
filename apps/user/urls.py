@@ -1,6 +1,5 @@
-from django.urls import path, include
+from django.urls import path
 from .views import CreateUserView
-from djoser import views as djoser_views
 
 
 urlpatterns = [
