@@ -33,9 +33,6 @@ class EventCreateView(CreateAPIView):
 
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request)
-
 
 class EventRetrieveDestroyUpdateView(RetrieveUpdateDestroyAPIView):
 
