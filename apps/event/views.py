@@ -42,7 +42,8 @@ class EventRetrieveDestroyUpdateView(RetrieveUpdateDestroyAPIView):
 
     def _perform_update(self, serializer, instance):
         validated_data = serializer.validated_data
-        if validated_data.get("event_date", False) or validated_data.get("time_period", False):
+        check_keys = {"event_date", "time_period"}
+        if any(keys in check_keys for keys in validated_data.keys()):
             get_date_to_send_invitation = DateSendInvitation.prepare_for_recount(validated_data, instance)
             instance.date_to_send_invitations = get_date_to_send_invitation()
         serializer.save()

@@ -3082,3 +3082,4 @@ Traceback (most recent call last):
     extra_actions = viewset.get_extra_actions()
 AttributeError: type object 'EventRetrieveDestroyUpdateView' has no attribute 'get_extra_actions'
 Forbidden: /v1/auth/me/
+Forbidden: /v1/events/264/
