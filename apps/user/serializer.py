@@ -1,12 +1,23 @@
-from .models import User
+from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from logging import warning
+
+from .models import User
+
 
 
 class JWTAuthenticationSerializer(TokenObtainPairSerializer):
 
     def validate(self, attrs):
-        pass
+        authenticate_credentials = {
+            "email": attrs["email"],
+            "password": attrs["password"]
+        }
+
+        user = authenticate(request=self.context["request"], **authenticate_credentials)
+
+
 
 
 class UserCreateSerializer(serializers.Serializer):
