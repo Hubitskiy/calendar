@@ -3083,3 +3083,89 @@ Traceback (most recent call last):
 AttributeError: type object 'EventRetrieveDestroyUpdateView' has no attribute 'get_extra_actions'
 Forbidden: /v1/auth/me/
 Forbidden: /v1/events/264/
+Internal Server Error: /v1/users/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/apps/user/views.py", line 33, in post
+    return self.create(request, *args, **kwargs)
+  File "/apps/user/views.py", line 28, in create
+    self._perform_create(serializer)
+  File "/apps/user/views.py", line 21, in _perform_create
+    raise ValidationError('User with given credentials already exist')
+django.core.exceptions.ValidationError: ['User with given credentials already exist']
+Forbidden: /v1/auth/me/
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 56, in update
+    self._perform_update(serializer, instance)
+  File "/apps/event/views.py", line 49, in _perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 209, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "/apps/event/serializer.py", line 44, in update
+    warning(self.context["request"]["user"])
+TypeError: 'Request' object is not subscriptable
+Internal Server Error: /v1/users/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/apps/user/views.py", line 40, in post
+    return self.create(request, *args, **kwargs)
+  File "/apps/user/views.py", line 35, in create
+    self._perform_create(serializer)
+  File "/apps/user/views.py", line 30, in _perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 184, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+Bad Request: /v1/users/create/
+Bad Request: /v1/users/create/
