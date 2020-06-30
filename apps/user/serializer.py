@@ -1,12 +1,34 @@
-from .models import User
-from rest_framework import serializers
+from django.contrib.auth import authenticate
+from rest_framework import serializers, exceptions
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+from .models import User
+
 
 
 class JWTAuthenticationSerializer(TokenObtainPairSerializer):
 
     def validate(self, attrs):
-        pass
+        authenticate_credentials = {
+            "email": attrs["email"],
+            "password": attrs["password"]
+        }
+
+        authenticate_credentials["request"] = self.context["request"]
+        user = authenticate(**authenticate_credentials)
+
+        if user is None:
+            raise exceptions.AuthenticationFailed("No active account with given credentials")
+
+        if not user.is_active:
+            raise serializers.ValidationError("You should complete registration")
+
+        refresh = self.get_token(user)
+
+        return {
+            "refresh": str(refresh),
+            "access": str(refresh.access_token)
+        }
 
 
 class UserCreateSerializer(serializers.Serializer):

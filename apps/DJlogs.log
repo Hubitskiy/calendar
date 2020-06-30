@@ -3172,3 +3172,32 @@ Bad Request: /v1/users/create/
 Not Found: /v1/jwt/create/
 Not Found: /auth/v1/jwt/create/
 Unauthorized: /v1/auth/jwt/create/
+Internal Server Error: /v1/users/jwt/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.6/dist-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/response.py", line 72, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/renderers.py", line 106, in render
+    allow_nan=not self.strict, separators=separators
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/utils/json.py", line 28, in dumps
+    return json.dumps(*args, **kwargs)
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/utils/encoders.py", line 68, in default
+    return super(JSONEncoder, self).default(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'RefreshToken' is not JSON serializable
+Bad Request: /v1/users/jwt/create/
+Unauthorized: /v1/users/jwt/create/
