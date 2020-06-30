@@ -3169,3 +3169,6 @@ Traceback (most recent call last):
 AssertionError: You cannot call `.save()` on a serializer with invalid data.
 Bad Request: /v1/users/create/
 Bad Request: /v1/users/create/
+Not Found: /v1/jwt/create/
+Not Found: /auth/v1/jwt/create/
+Unauthorized: /v1/auth/jwt/create/
