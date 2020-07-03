@@ -30,21 +30,23 @@ class CreateEventSerializer(serializers.Serializer):
         if date_send_invitations() < datetime.now(tz=pytz.UTC):
             raise ValidationError("Sending date cannot be less than the current")
 
-        return super().validate(data)
+        return data
 
 
 class RetrieveEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
+        read_only_fields = ['user', 'date_to_send_invitations', 'is_sent', 'is_ended']
         depth = 0
 
     def update(self, instance, validated_data):
-        instance.events_title = validated_data.get("events_title", instance.events_title)
-        instance.description = validated_data.get("description", instance.description)
-        instance.time_period = validated_data.get("time_period", instance.time_period)
-        instance.event_date = validated_data.get("event_date", instance.event_date)
-        instance.is_sent = validated_data.get("is_sent", instance.is_sent)
-        instance.is_ended = validated_data.get("is_ended", instance.is_ended)
+        check_keys = {"event_date", "time_period"}
+
+        if any(keys in check_keys for keys in validated_data):
+            get_data_to_send_invitations = DateSendInvitation.prepare_for_recount(validated_data, instance)
+            instance.date_to_send_invitations = get_data_to_send_invitations()
+
+        instance.__dict__.update(validated_data)
         instance.save()
         return instance

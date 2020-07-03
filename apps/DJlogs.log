@@ -3201,3 +3201,93 @@ Traceback (most recent call last):
 TypeError: Object of type 'RefreshToken' is not JSON serializable
 Bad Request: /v1/users/jwt/create/
 Unauthorized: /v1/users/jwt/create/
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 56, in update
+    warning(serializer.data)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 258, in data
+    raise AssertionError(msg)
+AssertionError: When a serializer is passed a `data` keyword argument you must call `.is_valid()` before attempting to access the serialized `.data` representation.
+You should either call `.is_valid()` first, or access `.initial_data` instead.
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 59, in update
+    self._perform_update(serializer, instance)
+  File "/apps/event/views.py", line 49, in _perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 198, in save
+    "You cannot call `.save()` after accessing `serializer.data`."
+AssertionError: You cannot call `.save()` after accessing `serializer.data`.If you need to access data before committing to the database then inspect 'serializer.validated_data' instead. 
+Internal Server Error: /v1/events/264/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/generics.py", line 290, in patch
+    return self.partial_update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/mixins.py", line 84, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/apps/event/views.py", line 56, in update
+    self._perform_update(serializer, instance)
+  File "/apps/event/views.py", line 49, in _perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.6/dist-packages/rest_framework/serializers.py", line 209, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "/apps/event/serializer.py", line 44, in update
+    instance.update(validated_data)
+AttributeError: 'Event' object has no attribute 'update'
