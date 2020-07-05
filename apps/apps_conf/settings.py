@@ -191,8 +191,15 @@ SIMPLE_JWT = {
 DJOSER = {
     'SERIALIZERS': {
         'user': 'djoser.serializers.UserSerializer',
-        # 'user_create': 'src.usernotification.users.serializer.SystemUserSerializer',
+        'user_create': 'apps.user.serializer.UserCreateSerializer',
+        'activation': 'apps.users.serializers.UserActivationSerializer',
     },
+    'SEND_ACTIVATION_EMAIL': True,
+    'ACTIVATION_URL': 'auth/activate/{uid}/{token}',
+    'EMAIL': {
+        'activation': 'djoser.email.ActivationEmail',
+        'confirmation': 'djoser.email.ConfirmationEmail',
+    }
         }
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
