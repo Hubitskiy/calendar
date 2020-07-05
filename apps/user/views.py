@@ -1,33 +1,38 @@
-from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
-from .serializer import UserCreateSerializer
-from .models import User
-from django.core.validators import ValidationError
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework_simplejwt.views import TokenViewBase
+
+from djoser.views import UserCreateView as DjoserUserCreateView
+from djoser import signals
+from djoser.conf import settings
+
+from .serializer import UserCreateSerializer, JWTAuthenticationSerializer
 
 
-class CreateUserView(CreateAPIView):
+class JWTAuthenticationView(TokenViewBase):
+
+    serializer_class = JWTAuthenticationSerializer
+    permission_classes = [AllowAny]
+
+
+class CreateUserView(DjoserUserCreateView):
 
     serializer_class = UserCreateSerializer
     permission_classes = [AllowAny]
 
-    def _perform_create(self, serializer):
-        queryset = User.objects.filter(
-            email=self.request.data['email']
+    def perform_create(self, serializer):
+        user = serializer.save()
+        signals.user_registered.send(
+            sender=self.__class__, user=user, request=self.request
         )
-
-        if queryset.exists():
-            raise ValidationError('User with given credentials already exist')
-
-        serializer.save()
+        if settings.SEND_ACTIVATION_EMAIL:
+            from logging import warning
+            warning(f"SEND EMAIL {user.email}")
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-        serializer.is_valid()
-        self._perform_create(serializer)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
         headers = self.get_success_headers(data=request.data)
         return Response(headers=headers, status=status.HTTP_204_NO_CONTENT)
-
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)

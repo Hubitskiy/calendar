@@ -98,6 +98,12 @@ DATABASES = {
     }
 }
 
+# Email settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'timwer23@gmail.com'
+EMAIL_HOST_PASSWORD = '12111195Gh'
+EMAIL_PORT = 587
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -167,7 +173,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         'rest_framework.permissions.IsAuthenticated',
@@ -186,8 +191,15 @@ SIMPLE_JWT = {
 DJOSER = {
     'SERIALIZERS': {
         'user': 'djoser.serializers.UserSerializer',
-        # 'user_create': 'src.usernotification.users.serializer.SystemUserSerializer',
+        'user_create': 'apps.user.serializer.UserCreateSerializer',
+        'activation': 'apps.users.serializers.UserActivationSerializer',
     },
+    'SEND_ACTIVATION_EMAIL': True,
+    'ACTIVATION_URL': 'auth/activate/{uid}/{token}',
+    'EMAIL': {
+        'activation': 'djoser.email.ActivationEmail',
+        'confirmation': 'djoser.email.ConfirmationEmail',
+    }
         }
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
